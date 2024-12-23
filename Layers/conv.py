@@ -33,7 +33,8 @@ class Conv:
 
     def forward(self, input):
         """
-        Returns a 3d numpy array with dimensions (batch_size,output_channels,output_height,output_weight).
+        Applying Convolutional Sum between kernel and input matrix,
+        Which Returns a 3d numpy array with dimensions (batch_size,output_channels,output_height,output_weight).
 
         """
         self.input = self.pad_input(input)  # Save for backward
