@@ -2,17 +2,8 @@ import numpy as np
 
 
 """
- Convolutional Layer
-
- Use: The convolutional layer focuses on feature extraction, which is critical for understanding patterns in input inages.
-
-    Forward Pass:
-        We apply convolution operations using filters to extract local patterns (e.g., edges, textures).
-        we also produce a feature map that highlights important spatial features in the input.
-    Backward Pass:
-        Here, we compute gradients of the loss with respect to:
-            Filters: Adjusts the filters to better detect features.
-            Input: Allows error signals to propagate backward for earlier layers.
+Convolutional Layer
+ Use: It focuses on feature extraction, which is critical for understanding patterns in input inages.
 
 """
 
@@ -33,8 +24,9 @@ class Conv:
 
     def forward(self, input):
         """
-        Applying Convolutional Sum between kernel and input matrix,
-        Which Returns a 3d numpy array with dimensions (batch_size,output_channels,output_height,output_weight).
+        Forward Pass:
+            Here we apply convolution operations using filters to extract local patterns (e.g., edges, textures).
+            produces a feature map that highlights important spatial features in the input of dimensions (batch_size,output_channels,output_height,output_weight).
 
         """
         self.input = self.pad_input(input)  # Save for backward
@@ -52,6 +44,12 @@ class Conv:
         return self.output
 
     def backward(self, d_output, learning_rate=0.001):
+        """
+        Backward Pass:
+            Here, we compute gradients of the loss with respect to:
+                Filters: Adjusts the filters to better detect features.
+                Input: Allows error signals to propagate backward for earlier layers.
+        """
         batch_size, _, out_height, out_width = d_output.shape
         d_filters = np.zeros_like(self.filters)
         d_biases = np.zeros_like(self.biases)

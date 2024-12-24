@@ -2,15 +2,7 @@ import numpy as np
 
 """
 Max Pool Layer
-
 Use: it reduces overfitting, computational cost, and ensures that small variations in the input do not significantly affect the network’s predictions.
-
-Forward Pass:
-    We reduce the spatial dimensions of the feature maps by selecting the maximum value from each pooling region &
-    Provide spatial invariance and reduces computation by downsampling the feature maps.
-Backward Pass:
-    Propagates the gradient only to the positions of the maximum values in the input during the forward pass.
-    No learnable parameters, so only the gradient w.r.t. the input is computed.
 
 """
 
@@ -20,6 +12,12 @@ class MaxPool:
         self.stride = stride
 
     def forward(self, input):
+        """
+        Forward Pass:
+            Here we reduce the spatial dimensions of the feature maps by selecting the maximum value from each pooling region &
+            Provide spatial invariance and reduces computation by downsampling the feature maps.
+
+        """
         self.input = input
         batch_size, channels, in_height, in_width = input.shape
         out_height = (in_height - self.pool_size) // self.stride + 1
@@ -40,6 +38,11 @@ class MaxPool:
         return self.output
 
     def backward(self, d_output):
+        """
+        Backward Pass:
+            Here we propagate the gradient only to the positions of the maximum values in the input during the forward pass.
+            No learnable parameters, so only the gradient w.r.t. the input is computed.
+        """
         d_input = np.zeros_like(self.input)
         batch_size, channels, out_height, out_width = d_output.shape
 
