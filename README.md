@@ -76,7 +76,7 @@ python cnn.py
 
 ## **Dataset**
 The project is designed to work with grayscale or RGB image datasets. To use your dataset:
-- Replace the data preprocessing functions in `utils/helper.py`.
+- Replace the data preprocessing functions in `utils/data_loader.py`.
 
 ---
 
