@@ -30,7 +30,7 @@ This project demonstrates a fully functional CNN with:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/CNN-From-Scratch.git
+   git clone https://github.com/KeyserSoze7/CNN-From-Scratch.git
    cd CNN-From-Scratch
    ```
 
