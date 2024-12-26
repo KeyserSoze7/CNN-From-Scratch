@@ -38,7 +38,7 @@ This project demonstrates a fully functional CNN with:
    ```bash
    pip install -r requirements.txt
    ```
-   *(If you’re only using Python and NumPy, this step may not be necessary.)*
+   *(As We’re only using Python and NumPy, this step may not be necessary.)*
 
 ---
 
